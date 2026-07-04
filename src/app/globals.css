@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-bg text-ink font-sans;
+  }
+}
+
+@layer components {
+  .bp-eyebrow {
+    @apply font-mono text-sm tracking-wide text-cyandim inline-flex items-center gap-2 lowercase;
+  }
+  .bp-eyebrow::before {
+    content: "";
+    @apply w-1.5 h-1.5 bg-amber rounded-sm inline-block;
+  }
+  .bp-card {
+    @apply bg-card border border-line rounded;
+  }
+  .bp-tag {
+    @apply font-mono text-sm text-muted border border-line rounded px-3 py-1.5 whitespace-nowrap;
+  }
+  .bp-btn-primary {
+    @apply bg-amber text-[#14202E] font-mono font-semibold text-base rounded border border-amber px-5 py-3 transition-all hover:-translate-y-0.5 hover:bg-[#ffbf5c] inline-flex items-center gap-2;
+  }
+  .bp-btn-outline {
+    @apply bg-transparent text-cyan font-mono font-medium text-base rounded border border-line px-5 py-3 transition-all hover:border-cyan hover:bg-cyan/5 inline-flex items-center gap-2;
+  }
+  .bp-link-icon {
+    @apply text-muted border border-line rounded w-10 h-10 flex items-center justify-center transition-colors hover:text-cyan hover:border-cyan;
+  }
+  .bp-nav-link {
+    @apply font-mono text-sm text-muted transition-colors hover:text-cyan;
+  }
+  .bp-col-row {
+    @apply flex items-center justify-between px-3 py-2 border-b border-linesoft font-mono text-sm last:border-b-0;
+  }
+  .bp-grid-bg {
+    @apply absolute inset-0 bg-bp-grid bg-bp-grid opacity-30 pointer-events-none;
+  }
+  .bp-status-live {
+    @apply text-[#7CE0A6] bg-[#7CE0A6]/10 border border-[#7CE0A6]/30 font-mono text-xs px-2.5 py-1 rounded-full;
+  }
+  .bp-status-progress {
+    @apply text-amber bg-amber/10 border border-amber/30 font-mono text-xs px-2.5 py-1 rounded-full;
+  }
+}
+
+::selection {
+  background: #F2A93B;
+  color: #14202E;
+}
