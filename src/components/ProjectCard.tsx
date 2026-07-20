@@ -1,25 +1,33 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { Project } from "@/data/types";
+import { useInView } from "@/hooks/useInView";
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const { ref, inView } = useInView(0.05);
   const initials = project.name.split(" ").map((w) => w[0]).join("");
+
   return (
-    <div className="bp-card overflow-hidden flex flex-col hover:border-cyandim hover:-translate-y-1 transition-all">
-      <div className="h-[140px] relative bg-gradient-to-br from-card to-bg border-b border-line flex items-center justify-center overflow-hidden">
+    <div
+      ref={ref}
+      className={`bp-card overflow-hidden flex flex-col hover:border-cyandim hover:-translate-y-1.5 hover:shadow-[0_8px_30px_-8px_rgba(111,211,247,0.12)] transition-all duration-500 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      style={{ transitionDelay: `${0.1 * index}s` }}
+    >
+      <div className="h-[140px] relative bg-gradient-to-br from-card to-bg border-b border-line flex items-center justify-center overflow-hidden group">
         {project.image ? (
           <Image
             src={project.image}
             alt={`${project.name} screenshot`}
             fill
             sizes="(max-width: 768px) 100vw, 360px"
-            className="object-cover object-top"
+            className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
           />
         ) : (
           <>
-            <div className="bp-grid-bg opacity-50" />
-            <span className="font-display font-bold text-[34px] text-line relative">{initials}</span>
+            <div className="bp-grid-bg-dense" />
+            <span className="font-display font-bold text-[34px] text-line/60 relative">{initials}</span>
           </>
         )}
         <span className={`absolute top-2.5 right-2.5 z-10 ${project.status === "live" ? "bp-status-live" : "bp-status-progress"}`}>

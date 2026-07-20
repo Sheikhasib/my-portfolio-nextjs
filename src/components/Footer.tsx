@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="border-t border-linesoft py-7 px-5">
       <div className="max-w-[1120px] mx-auto flex flex-wrap gap-3 items-center justify-between">
         <span className="font-mono text-sm text-muted">
-          © {new Date().getFullYear()} Sheikh Hasib Uzzaman — built with Next.js
+          © {new Date().getFullYear()} Sheikh Hasib Uzzaman
         </span>
         <div className="flex gap-2">
           <a href="https://github.com/Sheikhasib" target="_blank" rel="noreferrer" className="bp-link-icon w-8 h-8" aria-label="GitHub">

@@ -1,24 +1,44 @@
 import type { Metadata } from "next";
+import { Fraunces, Outfit, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+const display = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-display",
+});
+
+const sans = Outfit({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
 
 export const metadata: Metadata = {
   title: "Sheikh Hasib Uzzaman — Full Stack Developer",
   description:
     "Portfolio of Sheikh Hasib Uzzaman, a Full Stack Developer working with TypeScript, Next.js, Node.js, PostgreSQL, Prisma, and AI/RAG integrations.",
+  openGraph: {
+    title: "Sheikh Hasib Uzzaman — Full Stack Developer",
+    description:
+      "Full Stack Developer working with TypeScript, Next.js, Node.js, PostgreSQL, Prisma, and AI/RAG integrations.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>{children}</body>
+    <html
+      lang="en"
+      className={`${display.variable} ${sans.variable} ${mono.variable}`}
+    >
+      <body>
+        <div className="grain-overlay" />
+        {children}
+      </body>
     </html>
   );
 }

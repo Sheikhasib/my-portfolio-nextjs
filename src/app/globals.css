@@ -3,8 +3,17 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-bg text-ink font-sans;
+    @apply bg-bg text-ink font-sans antialiased;
+  }
+
+  ::selection {
+    background: #F2A93B;
+    color: #0A1628;
   }
 }
 
@@ -14,25 +23,31 @@
   }
   .bp-eyebrow::before {
     content: "";
-    @apply w-1.5 h-1.5 bg-amber rounded-sm inline-block;
+    @apply w-1.5 h-1.5 bg-amber rounded-sm inline-flex;
   }
   .bp-card {
-    @apply bg-card border border-line rounded;
+    @apply bg-card border border-line rounded-sm;
   }
   .bp-tag {
-    @apply font-mono text-sm text-muted border border-line rounded px-3 py-1.5 whitespace-nowrap;
+    @apply font-mono text-sm text-muted border border-line rounded-sm px-3 py-1.5 whitespace-nowrap;
   }
   .bp-btn-primary {
-    @apply bg-amber text-[#14202E] font-mono font-semibold text-base rounded border border-amber px-5 py-3 transition-all hover:-translate-y-0.5 hover:bg-[#ffbf5c] inline-flex items-center gap-2;
+    @apply bg-amber text-[#0A1628] font-mono font-semibold text-base rounded-sm border border-amber px-5 py-3 transition-all hover:-translate-y-0.5 hover:shadow-[0_0_20px_-4px_#F2A93B] hover:bg-[#ffbf5c] inline-flex items-center gap-2;
   }
   .bp-btn-outline {
-    @apply bg-transparent text-cyan font-mono font-medium text-base rounded border border-line px-5 py-3 transition-all hover:border-cyan hover:bg-cyan/5 inline-flex items-center gap-2;
+    @apply bg-transparent text-cyan font-mono font-medium text-base rounded-sm border border-line px-5 py-3 transition-all hover:border-cyan hover:bg-cyan/5 hover:shadow-[0_0_20px_-8px_#6FD3F7] inline-flex items-center gap-2;
   }
   .bp-link-icon {
-    @apply text-muted border border-line rounded w-10 h-10 flex items-center justify-center transition-colors hover:text-cyan hover:border-cyan;
+    @apply text-muted border border-line rounded-sm w-10 h-10 flex items-center justify-center transition-all hover:text-cyan hover:border-cyan hover:shadow-[0_0_16px_-8px_#6FD3F7];
   }
   .bp-nav-link {
-    @apply font-mono text-sm text-muted transition-colors hover:text-cyan;
+    @apply font-mono text-sm text-muted transition-colors hover:text-cyan relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-cyan after:transition-all hover:after:w-full;
+  }
+  .bp-nav-link.active {
+    @apply text-cyan;
+  }
+  .bp-nav-link.active::after {
+    @apply w-full;
   }
   .bp-col-row {
     @apply flex items-center justify-between px-3 py-2 border-b border-linesoft font-mono text-sm last:border-b-0;
@@ -40,15 +55,66 @@
   .bp-grid-bg {
     @apply absolute inset-0 bg-bp-grid bg-bp-grid opacity-30 pointer-events-none;
   }
+  .bp-grid-bg-dense {
+    @apply absolute inset-0 bg-bp-grid-dense bg-bp-grid-dense opacity-20 pointer-events-none;
+  }
   .bp-status-live {
     @apply text-[#7CE0A6] bg-[#7CE0A6]/10 border border-[#7CE0A6]/30 font-mono text-xs px-2.5 py-1 rounded-full;
   }
   .bp-status-progress {
     @apply text-amber bg-amber/10 border border-amber/30 font-mono text-xs px-2.5 py-1 rounded-full;
   }
+  .bp-glow-cyan {
+    box-shadow: 0 0 30px -8px rgba(111, 211, 247, 0.15);
+  }
+  .bp-glow-amber {
+    box-shadow: 0 0 30px -8px rgba(242, 169, 59, 0.15);
+  }
+  .bp-divider {
+    @apply relative flex items-center gap-4 py-2;
+  }
+  .bp-divider::before,
+  .bp-divider::after {
+    content: "";
+    @apply flex-1 h-px bg-gradient-to-r from-transparent via-line to-transparent;
+  }
+  .bp-divider span {
+    @apply font-mono text-xs text-muted/50;
+  }
 }
 
-::selection {
-  background: #F2A93B;
-  color: #14202E;
+@layer utilities {
+  .stagger-1 { animation-delay: 0.05s; }
+  .stagger-2 { animation-delay: 0.12s; }
+  .stagger-3 { animation-delay: 0.2s; }
+  .stagger-4 { animation-delay: 0.28s; }
+  .stagger-5 { animation-delay: 0.36s; }
+  .stagger-6 { animation-delay: 0.44s; }
+  .stagger-7 { animation-delay: 0.52s; }
+  .stagger-8 { animation-delay: 0.6s; }
+
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 512px 512px;
+    animation: grain-shift 8s ease-in-out infinite;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
