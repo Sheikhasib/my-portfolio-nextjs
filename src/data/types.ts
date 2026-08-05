@@ -6,6 +6,7 @@ export type Project = {
   image: string | null;
   stack: string[];
   description: string;
+  highlights: string[];
   challenges: string;
   improvements: string;
   live: string | null;

@@ -11,7 +11,7 @@ export default function Footer() {
           <a href="https://github.com/Sheikhasib" target="_blank" rel="noreferrer" className="bp-link-icon w-8 h-8" aria-label="GitHub">
             <Github size={14} />
           </a>
-          <a href="https://www.linkedin.com/in/sheikh-hasib-uzzaman-5b12b720b" target="_blank" rel="noreferrer" className="bp-link-icon w-8 h-8" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/sheikh-hasib-uzzaman" target="_blank" rel="noreferrer" className="bp-link-icon w-8 h-8" aria-label="LinkedIn">
             <Linkedin size={14} />
           </a>
         </div>

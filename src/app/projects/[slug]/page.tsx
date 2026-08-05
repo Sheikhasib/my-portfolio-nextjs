@@ -75,6 +75,18 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             </div>
 
             <div>
+              <div className="bp-eyebrow mb-2.5">key_features</div>
+              <ul className="space-y-2.5">
+                {project.highlights.map((h) => (
+                  <li key={h} className="flex items-start gap-2.5 text-muted2 text-lg leading-[1.8]">
+                    <span className="mt-[11px] w-1.5 h-1.5 bg-amber rounded-sm shrink-0" />
+                    {h}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
               <div className="bp-eyebrow mb-2.5">challenges</div>
               <p className="text-muted2 text-lg leading-[1.8]">{project.challenges}</p>
             </div>

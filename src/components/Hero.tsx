@@ -57,7 +57,7 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-3 mb-7 animate-fade-up stagger-4">
-              <a href="https://drive.google.com/uc?export=download&id=1CJTsHETAtQeH7knQX5BO1QComPPTRvWJ" className="bp-btn-primary">
+              <a href="https://drive.google.com/uc?export=download&id=14czZzdmNovBNpBk_pgbxEfbRpmXR6adG" className="bp-btn-primary">
                 <Download size={16} /> download_resume.pdf
               </a>
               <a href="#projects" className="bp-btn-outline">
@@ -69,7 +69,7 @@ export default function Hero() {
               <a href="https://github.com/Sheikhasib" target="_blank" rel="noreferrer" className="bp-link-icon" aria-label="GitHub">
                 <Github size={18} />
               </a>
-              <a href="https://www.linkedin.com/in/sheikh-hasib-uzzaman-5b12b720b" target="_blank" rel="noreferrer" className="bp-link-icon" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/sheikh-hasib-uzzaman" target="_blank" rel="noreferrer" className="bp-link-icon" aria-label="LinkedIn">
                 <Linkedin size={18} />
               </a>
               <button
