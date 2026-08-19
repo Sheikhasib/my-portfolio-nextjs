@@ -106,6 +106,32 @@
     animation: grain-shift 8s ease-in-out infinite;
   }
 
+  .aura-fixed {
+    position: fixed;
+    inset: -3%;
+    z-index: -1;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0.9;
+    background:
+      radial-gradient(38% 44% at 84% 6%, rgba(40, 60, 170, 0.5), transparent 70%),
+      radial-gradient(30% 40% at 6% 20%, rgba(111, 211, 247, 0.13), transparent 70%),
+      radial-gradient(42% 52% at 92% 78%, rgba(34, 150, 118, 0.16), transparent 70%),
+      radial-gradient(48% 60% at 8% 92%, rgba(64, 50, 135, 0.3), transparent 72%);
+    animation: aura-drift 26s ease-in-out infinite alternate;
+  }
+
+  @keyframes aura-drift {
+    from { transform: translate3d(-1.5%, -1.5%, 0); }
+    to { transform: translate3d(1.5%, 1.5%, 0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aura-fixed {
+      animation: none;
+    }
+  }
+
   .reveal {
     opacity: 0;
     transform: translateY(24px);

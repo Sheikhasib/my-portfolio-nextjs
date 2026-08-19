@@ -36,7 +36,7 @@ function ExperienceItem({ role, company, period, bullets, index }: {
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 px-5 border-t border-linesoft bg-bgalt">
+    <section id="experience" className="py-20 px-5 border-t border-linesoft bg-bgalt/70">
       <div className="max-w-[1120px] mx-auto">
         <SectionHeading table="experience" title="Experience" />
         <div className="relative pl-7">

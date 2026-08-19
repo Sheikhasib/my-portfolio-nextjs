@@ -5,7 +5,7 @@ import { PROJECTS } from "@/data/projects";
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 px-5 border-t border-linesoft bg-bgalt">
+    <section id="projects" className="py-20 px-5 border-t border-linesoft bg-bgalt/70">
       <div className="max-w-[1120px] mx-auto">
         <SectionHeading table="projects" title="Projects" />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
