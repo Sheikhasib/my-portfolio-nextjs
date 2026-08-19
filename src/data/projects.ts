@@ -23,6 +23,27 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/Sheikhasib/GearUp-Frontend",
   },
   {
+    id: "tripverse",
+    name: "TripVerse",
+    tagline: "Curated travel booking & marketplace platform",
+    status: "live",
+    image: "/images/projects/tripverse.jpg",
+    stack: ["Next.js 16", "TypeScript", "Tailwind CSS 4", "shadcn/ui", "Radix UI", "TanStack Query", "Zustand", "React Hook Form", "Zod", "jsonwebtoken", "Cloudinary", "Recharts", "Framer Motion", "sonner"],
+    description:
+      "A full-stack travel booking platform that connects travellers with trusted local agents. Curated tour packages span Bangladesh's beaches, tea estates, and mangrove forests, with the complete journey handled in one app — browsing and filtering by category, budget, and duration, a secure payment checkout, agent-approved bookings, and post-trip ratings and reviews. Role-based dashboards for Traveller, Agent, and Admin deliver a JWT-secured experience backed by an Express + Prisma + PostgreSQL API proxied same-origin through Next.js rewrites.",
+    highlights: [
+      "End-to-end booking lifecycle — discover, book, confirm, pay, and review — with agent approval and a secure payment gateway.",
+      "Role-scoped Traveller, Agent, and Admin dashboards with Recharts analytics, guarded by JWT access/refresh token pairs in Next.js proxy middleware.",
+      "Fully typed data flow: react-hook-form + Zod schemas, TanStack Query for server state, Zustand for client state, and a Tailwind 4 + shadcn/ui design system.",
+    ],
+    challenges:
+      "Securing a three-role platform end to end — issuing and refreshing JWT pairs, validating them in Next.js proxy middleware, and proxying every API call same-origin through rewrites so auth cookies never cross a CORS boundary.",
+    improvements:
+      "Add real-time booking notifications, bring back wishlist and dedicated payment pages, and ship an admin contact inbox.",
+    live: "https://tripverse-client.vercel.app",
+    github: "https://github.com/Sheikhasib/TripVerse-Frontend",
+  },
+  {
     id: "presswire",
     name: "PressWire",
     tagline: "Premium news & publishing platform",
@@ -84,27 +105,6 @@ export const PROJECTS: Project[] = [
       "Migrate the backend to TypeScript with PostgreSQL and Prisma, rebuild the UI in Tailwind for a more custom design system, and add a real booking/checkout flow.",
     live: "https://bike-world-4aa7f.web.app/",
     github: "https://github.com/Sheikhasib/bike-world-client-side-website",
-  },
-  {
-    id: "world-tour",
-    name: "WorldTour",
-    tagline: "Travel & tourism discovery platform",
-    status: "live",
-    image: "/images/projects/world-tour.jpg",
-    stack: ["React", "React Bootstrap", "Firebase Auth", "Axios", "React Router"],
-    description:
-      "A travel and tourism discovery platform showcasing destinations, tour packages, and travel guides, with Firebase-authenticated user accounts and a fully responsive Bootstrap-based UI.",
-    highlights: [
-      "Showcase destinations, tour packages, and travel guides with rich media presentation.",
-      "Firebase-authenticated user accounts with protected routes.",
-      "Asynchronous data fetching and loading states managed cleanly with Axios and React Router v5.",
-    ],
-    challenges:
-      "Managing asynchronous data fetching and loading states cleanly across many destination pages using React Router v5.",
-    improvements:
-      "Add a real booking and payment backend, migrate the frontend to Next.js for SSR/SEO benefits, and introduce a custom design system in place of Bootstrap.",
-    live: "https://world-tour-web.web.app/",
-    github: "https://github.com/Sheikhasib/world-tour-client-side-website",
   },
   {
     id: "infant-endeavor",
